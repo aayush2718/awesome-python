@@ -1,7 +1,4 @@
-# NOT WORKING ATM
-
 from requests import get
-from bs4 import BeautifulSoup
 from os.path import exists
 
 
@@ -22,4 +19,8 @@ if exists('./one_million_pi.txt'):
     check()
 else:
     print("Downloading one_million_pi.txt")
-    res = get("")
+    res = get(
+        "https://raw.githubusercontent.com/aayush2718/awesome-python/main/basic-programs/one_million_pi.txt")
+    with open('./one_million_pi.txt', 'w') as f:
+        f.write(res.text)
+    check()
